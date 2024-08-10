@@ -243,7 +243,7 @@ arr.forEach((e)=>{
             }
             
             LineArray[LineCtr].innerHTML = "⬤";
-            numArray[LineCtr].style.border = "5px solid black"
+            numArray[LineCtr].style.border = "5px solid white"
             LineCtr++;
 
            
