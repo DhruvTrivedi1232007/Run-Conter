@@ -20,7 +20,7 @@ body {
 }
 
 .all {
-    margin-top: 50px;
+    margin-top: -80px;
     width: 100%;
     max-width: 1000px;
     padding: 10px;
@@ -155,7 +155,7 @@ body {
 }
 
 .LineCtt {
-    font-size: 20px;
+    font-size: 15px;
     color: black;
     z-index: 5;
 }
@@ -257,14 +257,14 @@ body {
     .display-run {
         width: 120px;
         height: 60px;
-        font-size: 20px;
+        font-size: 30px;
         margin-left: -200px;
     }
 
     .display-over {
         width: 100px;
         height: 30px;
-        font-size: 16px;
+        font-size: 20px;
         margin-left: -200px;
     }
 
