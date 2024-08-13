@@ -1,282 +1,325 @@
-// alert("Please switch in desktop site if you are using this in mobile")
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Lalezar", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+}
 
-let run = document.querySelector('#run-count')
-let btns = document.querySelectorAll('.btnss')
-let WicketBtn = document.querySelector("#wicket-count")
-let OverCount = document.querySelector("#over-count")
-let LineBalls = document.querySelectorAll(".ball")
-// let LineTxt = document.querySelectorAll(".com")
-// let LineCount = document.querySelectorAll(".LineCtt")
-// let LineArr = Array.from(LineCount)
+body {
+    background-image: url('stuff/image (59).png');
+    background-color: black;
+    font-family: "Lalezar", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
+.all {
+    margin-top: -150px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px;
+}
 
-let Line1 = document.querySelector(".com1")
-let Line2 = document.querySelector(".com2")
-let Line3 = document.querySelector(".com3")
-let Line4 = document.querySelector(".com4")
-let Line5 = document.querySelector(".com5")
-let Line6 = document.querySelector(".com6")
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 5%;
+    margin: 0 10px;
+    flex-wrap: wrap;
+    margin-left: 280px;
+    margin-right: 320px;
+}
 
-let one = document.querySelector(".one")
-let two = document.querySelector(".two")
-let three = document.querySelector(".three")
-let four = document.querySelector(".four")
-let five = document.querySelector(".five")
-let six = document.querySelector(".six")
+.display-run, .display-over {
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-align: center;
+}
 
-let numArray = [one, two, three, four, five, six]
+.display-run {
+    width: 180px;
+    height: 80px;
+    font-size: 30px;
+    padding: 10px;
+}
 
-let LineArray = [Line1, Line2, Line3, Line4, Line5, Line6]
-var LineCtr = 0;
+.display-over {
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    margin-top: 30px;
+}
 
-let arr = Array.from(btns)
-let ball = 1
-let over = 0
-let i;
+.line-m{
+    width: 90%;
+    height: 5px;
+    background-color: white;
+    position: relative;
+    top: 108px;
+}
 
+.line {
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    margin: 50px auto;
+    width: 100%;
+    max-width: 800px;
+    flex-wrap: wrap;       
+    margin-top: -20px; 
+    color: white;
+}
 
-arr.forEach((e)=>{
-    
-    e.addEventListener("click", (evt)=>{
+.ball {
+    background-color: white;
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    z-index: 5;
+}
 
-        console.log(evt.target.innerHTML)
+.btn, .btn-2 {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
 
-        if(evt.target.innerHTML == 1){
-            run.innerHTML++;
+.btn-2 {
+    margin-top: 50px;
+}
 
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
+.run, .last-btns {
+    height: 50px;
+    min-width: 100px;
+    border-radius: 100px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    transition: background-color 0.3s ease-in-out;
+}
 
-            
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
-            
-            numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-            LineArray[LineCtr].innerHTML = evt.target.innerHTML
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++
-            
-            
-        } else if(evt.target.innerHTML == 2){
-            for(i=0;i<2;i++){
-                run.innerHTML++
-            }
+.run:hover, .last-btns:hover {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    cursor: pointer;
+}
 
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
+.last-btns {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease-in-out;
+}
 
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
+.last-btns:hover {
+    background-color: rgb(0, 145, 255);
+    color: white;
+}
 
-            numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-            LineArray[LineCtr].innerHTML = "2"
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++
+.undo-btn {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    float: right;
+    margin: 20px;
+    border: none;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-            
+.undo-btn img {
+    height: 30px;
+    width: 30px;
+    padding-top: 5px;
+}
 
+.undo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
-        } else if(evt.target.innerHTML == 3){
-            for(i=0;i<3;i++){
-                run.innerHTML++
-            }
+.LineCtt {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    z-index: 5;
+}
 
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
+.undo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
 
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-            }
+.undo-btn {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
 
-            numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-            LineArray[LineCtr].innerHTML = "3"
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++
+.undo-btn img {
+    height: 35px;
+    width: 30px;
+    margin-bottom: 5px;
+    transition: ease-in-out;
+}
 
-        } else if(evt.target.innerHTML == 4){
-            for(i=0;i<4;i++){
-                run.innerHTML++
-            }
-
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
-
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
-
-            numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-            LineArray[LineCtr].innerHTML = "4"
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++
-
-        } else if(evt.target.innerHTML == 6){
-            for(i=0;i<6;i++){
-                run.innerHTML++
-            }
-            
-
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
-
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
-
-            numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-            LineArray[LineCtr].innerHTML = "6"
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++
-
-        } else if(evt.target.innerHTML == "Wicket") {
-            WicketBtn.innerHTML++;
-
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
+.undo-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
 
 
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
+@media (max-width: 768px) {
+    .display-run {
+        width: 150px;
+        height: 70px;
+        font-size: 25px;
+        margin-left: -170px;
+    }
 
+    .display-over {
+        width: 120px;
+        height: 40px;
+        font-size: 18px;
+        margin-left: -170px;
+    }
 
-            LineArray[LineCtr].innerHTML = "W"
-            
-            numArray[LineCtr].style.backgroundColor = "red"
-            numArray[LineCtr].style.color = "white"
-            numArray[LineCtr].style.border = "5px solid white"
-            LineCtr++;
+    .line-m{
+        width: 90%;
+        height: 5px;
+        background-color: white;
+        position: relative;
+        top: 41px;
+    }
 
-        } else if(evt.target.innerHTML == "No Ball") {
-            run.innerHTML++
+    .line {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin: 50px auto;
+        width: 100%;
+        max-width: 800px;
+        flex-wrap: wrap;    
+    }
 
-        } else if(evt.target.innerHTML == "Dot") {
-            OverCount.innerHTML =`${over}.${ball}`
-            ball++
-            if(ball > 5){
-                ball = 0;
-                over++
-            }
+    .ball {
+        height: 50px;
+        width: 50px;
+    }
 
-            if(LineCtr > 5){
-                
-                OverFinish()
-                LineCtr = 0
-                numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
-                LineArray[LineCtr].innerHTML = evt.target.innerHTML
-                numArray[LineCtr].style.color = "white"
-                numArray[LineCtr].style.border = "5px solid white"
-                
-            }
-            
-            LineArray[LineCtr].innerHTML = "⬤";
-            numArray[LineCtr].style.border = "5px solid white"
-            LineArray[LineCtr].style.color = "black"
-            LineCtr++;
+    .run, .last-btns {
+        font-size: 18px;
+        min-width: 80px;
+        height: 40px;
+    }
 
-           
-        } else if(evt.target.innerHTML == "Wide") {
-            run.innerHTML++
-        }
-    })
-})
+    .undo {
+        top: 15px;
+        right: 15px;
+    }
 
-let OverFinish = ()=>{
-    
-    numArray[0].style.backgroundColor = "white"
-    numArray[1].style.backgroundColor = "white"
-    numArray[2].style.backgroundColor = "white"
-    numArray[3].style.backgroundColor = "white"
-    numArray[4].style.backgroundColor = "white"
-    numArray[5].style.backgroundColor = "white"
-    numArray[0].style.Color = "white"
-    numArray[1].style.Color = "white"
-    numArray[2].style.Color = "white"
-    numArray[3].style.Color = "white"
-    numArray[4].style.Color = "white"
-    numArray[5].style.Color = "white"
-    LineArray[0].innerHTML = " "
-    LineArray[1].innerHTML = " "
-    LineArray[2].innerHTML = " "
-    LineArray[3].innerHTML = " "
-    LineArray[4].innerHTML = " "
-    LineArray[5].innerHTML = " "
-    numArray[0].style.border = "none"
-    numArray[1].style.border = "none"
-    numArray[2].style.border = "none"
-    numArray[3].style.border = "none"
-    numArray[4].style.border = "none"
-    numArray[5].style.border = "none"
+    .undo-btn {
+        height: 45px;
+        width: 45px;
+    }
+
+    .undo-btn img {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .display-run {
+        width: 120px;
+        height: 60px;
+        font-size: 30px;
+        margin-left: -200px;
+    }
+
+    .display-over {
+        width: 100px;
+        height: 30px;
+        font-size: 20px;
+        margin-left: -200px;
+    }
+
+    .line-m{
+        width: 90%;
+        height: 5px;
+        background-color: white;
+        position: relative;
+        top: 40px;
+    }
+
+    .line {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin: 50px auto;
+        width: 100%;
+        max-width: 800px;
+        flex-wrap: wrap;    
+    }
+
+    .ball {
+        height: 40px;
+        width: 40px;
+    }
+
+    .run, .last-btns {
+        font-size: 16px;
+        min-width: 70px;
+        height: 35px;
+    }
+
+    .top {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .line {
+        width: 100%;
+    }
+
+     .undo {
+        top: 10px;
+        right: 10px;
+    }
+
+    .undo-btn {
+        height: 40px;
+        width: 40px;
+    }
+
+    .undo-btn img {
+        height: 20px;
+        width: 20px;
+    }
 }
