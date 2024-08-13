@@ -122,7 +122,6 @@ arr.forEach((e)=>{
                 LineArray[LineCtr].innerHTML = evt.target.innerHTML
                 numArray[LineCtr].style.color = "white"
                 numArray[LineCtr].style.border = "5px solid white"
-                
             }
 
             numArray[LineCtr].style.backgroundColor = "rgb(0, 145, 255)"
@@ -244,6 +243,7 @@ arr.forEach((e)=>{
             
             LineArray[LineCtr].innerHTML = "⬤";
             numArray[LineCtr].style.border = "5px solid white"
+            LineArray[LineCtr].style.color = "black"
             LineCtr++;
 
            
@@ -280,4 +280,3 @@ let OverFinish = ()=>{
     numArray[4].style.border = "none"
     numArray[5].style.border = "none"
 }
-
